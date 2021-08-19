@@ -38,4 +38,14 @@ def predict(pickup_datetime, pickup_longitude, pickup_latitude, dropoff_longitud
     X_pred["pickup_datetime"] = formatted_pickup_datetime
     model = joblib.load('model.joblib')
     y_pred = model.predict(X_pred)[0]
-    return {"prediction": y_pred}
+    return {"features": {
+                "key" : "2013-07-06 17:18:00.000000119",
+                "pickup_datetime": pickup_datetime,
+                "pickup_longitude": pickup_longitude,
+                "pickup_latitude": pickup_latitude,
+                "dropoff_longitude": dropoff_longitude,
+                "dropoff_latitude": dropoff_latitude,
+                "passenger_count": passenger_count        
+                },
+            "prediction": y_pred
+            }
